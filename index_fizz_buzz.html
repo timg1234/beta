@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+	<head>
+		<title>Test Webpage</title>
+	</head>
+	<body>
+		<br/>
+		<center>
+			<h1 id="demo">FizzBuzz!</h1>		
+		</center>						
+	<script>
+		var i = 0;
+		while(i <=99){
+			i++;
+			if (i % 3 == 0 && i %5 == 0){
+				document.write(i + ". FizzBuzz!<br/>");
+			} else if(i % 3 == 0) {
+				document.write(i + ". Fizz!");
+			} else if(i % 3 == 0) {
+				document.write(i + ". Buzz!");
+			} else {
+				document.write(i + ". <br/>");
+			}
+		}
+	</script>
+</html>
