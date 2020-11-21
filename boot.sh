@@ -38,10 +38,14 @@ python -V
 
 
 # to setup temperature reading
-sudo nano /boot/config.txt
+##sudo nano /boot/config.txt
 # add
-dtoverlay=w1-gpio,gpiopin=20 # 4 was default
-sudo reboot -h now
+##dtoverlay=w1-gpio,gpiopin=20 # 4 was default
+##sudo reboot -h now
+
+sudo sh -c 'echo dtoverlay=w1-gpio,gpiopin=20 >> /boot/config.txt'
+
+
 exit()
 cd /sys/bus/w1/devices
 cd 28#####
