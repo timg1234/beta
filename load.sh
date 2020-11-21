@@ -1,4 +1,3 @@
-# 
 sudo apt-get update && sudo apt-get -y upgrade
 #enable ssh, cli interface
 sudo systemctl enable ssh
@@ -9,6 +8,9 @@ python -m venv venv
 
 # turn on virtual environment
 source venv/Scripts/activate
+
+# install remote desktop
+sudo apt-get install xrdp
 
 # install python 3
 #sudo apt-get update
