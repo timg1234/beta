@@ -1,4 +1,4 @@
-# RPi4 install
+# 
 sudo apt-get update && sudo apt-get -y upgrade
 #enable ssh, cli interface
 sudo systemctl enable ssh
