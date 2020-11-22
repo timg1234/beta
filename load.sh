@@ -193,7 +193,7 @@ sudo nano my.cnf
 #skip-networking
 sudo service mysql restart
 sudo mysql -u root -p
-update mysql.user set user="freddy" where user="root";
+update mysql.user set user="newuser" where user="root";
 flush privileges;
 exit;
 
