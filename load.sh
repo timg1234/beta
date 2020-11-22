@@ -15,34 +15,21 @@ sudo make altinstall
 python3.7 -V
 
 #make python 3.7 the default version
-echo 'which python3.7' >> ~/.bashrc
-echo '/usr/local/bin/python3.7' >> ~/.bashrc
-
-##sudo nano  ~/.bashrc
-
-#add alias
-##which python3.7
-##/usr/local/bin/python3.7
-
-##alias python='/usr/local/bin/python3.7'
-
-# just to check?
-##source ~/.bashrc
+alias python=python3
 
 #check version
 python -V
 
 # create virtual environment
+cd ~
 sudo apt-get install virtualenv -y
-python -m venv venv
+sudo python3 -m venv venv
 
 # turn on virtual environment
-source venv/Scripts/activate
+source venv/bin/activate
 
 # install remote desktop
 sudo apt-get install xrdp -y
-
-
 
 
 # to setup temperature reading
@@ -54,11 +41,11 @@ sudo apt-get install xrdp -y
 sudo sh -c 'echo dtoverlay=w1-gpio,gpiopin=20 >> /boot/config.txt'
 
 
-exit()
-cd /sys/bus/w1/devices
-cd 28#####
-ls
-cat w1_slave
+#exit()
+#cd /sys/bus/w1/devices
+#cd 28#####
+#ls
+#cat w1_slave
 # last #s after t = is temperature * 1000 in oC
 
 cd ~
@@ -77,12 +64,16 @@ pwerd
 sudo mysql -u root -p
 pwerd
 CREATE DATABASE 4_database;
-CREATE DATABASE alert_database;
+#CREATE DATABASE alert_database;
 SHOW DATABASES;
 USE 4_database;
-CREATE TABLE dataLog(datetime DATETIME NOT NULL, temperature FLOAT(5,2) NOT NULL);
-USE alert_database;
-CREATE TABLE dataLog(datetime DATETIME NOT NULL, alert FLOAT(5,2) NOT NULL);
+
+CREATE TABLE dataLog(datetime DATETIME NOT NULL, dist1 FLOAT(5,2) NOT NULL, dist2 FLOAT(5,2) NOT NULL, vib1 FLOAT(5,2) NOT NULL, vib2 FLOAT(5,2) NOT NULL);
+
+
+#CREATE TABLE dataLog(datetime DATETIME NOT NULL, temperature FLOAT(5,2) NOT NULL);
+#USE alert_database;
+#CREATE TABLE dataLog(datetime DATETIME NOT NULL, alert FLOAT(5,2) NOT NULL);
 DESCRIBE dataLog;
 exit;
 
