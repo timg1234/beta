@@ -77,11 +77,12 @@ CREATE TABLE dataLog(datetime DATETIME NOT NULL, dist1 FLOAT(5,2) NOT NULL, dist
 DESCRIBE dataLog;
 exit;
 
-append 
-sql_mode=""
-to
-/etc/mysql/my.cnf
-
+## unsure if needed
+##append 
+##sql_mode=""
+##to
+##/etc/mysql/my.cnf
+#sudo sh -c 'sql_mode="" >> /etc/mysql/my.cnf'
 
 #install mysqldb
 # old sudo apt-get install python3-dev libmysqlclient-dev
@@ -91,7 +92,7 @@ sudo pip3 install mysqlclient
 sudo apt-get install python-mysqldb
 sudo apt-get install python3-dev libmysqlclient-dev
 sudo apt-get install python3-dev libmariadb-dev-compat libmariadb-dev
-sudo pip3 install mysqlclient
+#sudo pip3 install mysqlclient
 
 #for remote desktop
 #sudo apt-get install lxsession
