@@ -3,15 +3,6 @@ sudo apt-get update && sudo apt-get -y upgrade
 #sudo systemctl enable ssh
 #sudo systemctl start ssh
 
-# create virtual environment
-python -m venv venv
-
-# turn on virtual environment
-source venv/Scripts/activate
-
-# install remote desktop
-sudo apt-get install xrdp -y
-
 # install python 3
 #sudo apt-get update
 sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev
@@ -24,6 +15,9 @@ sudo make altinstall
 python3.7 -V
 
 #make python 3.7 the default version
+echo 'which python3.7' >> ~/.bashrc
+echo '/usr/local/bin/python3.7' >> ~/.bashrc
+
 ##sudo nano  ~/.bashrc
 
 #add alias
@@ -37,6 +31,18 @@ python3.7 -V
 
 #check version
 python -V
+
+# create virtual environment
+sudo apt-get install virtualenv -y
+python -m venv venv
+
+# turn on virtual environment
+source venv/Scripts/activate
+
+# install remote desktop
+sudo apt-get install xrdp -y
+
+
 
 
 # to setup temperature reading
