@@ -176,6 +176,28 @@ sudo mysql -u root
 set password for 'root'@'localhost' = password('YOUR PASSWORD');
 #?set password for 'root'@’%’ = password('YOUR PASSWORD');
 flush privileges;
+
+#pwerd issues
+service mysql stop
+mysqld_safe --skip-grant-tables &
+mysql -u root
+use mysql;
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD("newpass");
+flush privileges;
+quit
+service mysql stop && killall mysqld
+service mysql start
+mysql -u root -p
+
+# remove mysql
+sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
+sudo apt-get autoremove -y
+sudo apt-get autoclean
+rm -rf /etc/mysql
+sudo find / -iname 'mysql*' -exec rm -rf {} \;
+
+
+
 exit
 sudo mysql -u root -p
 delete from mysql.db where Db like 'test%';
@@ -234,7 +256,7 @@ in script:
 from twilio.rest import Client
 
 # Your Account SID from twilio.com/console
-account_sid = "AC7079b1a0e061636592f4779a071cee93"
+account_sid = "AC..."
 # Your Auth Token from twilio.com/console
 auth_token  = "your_auth_token"
 
