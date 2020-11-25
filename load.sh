@@ -77,6 +77,9 @@ CREATE TABLE dataLog(datetime DATETIME NOT NULL, dist1 FLOAT(5,2) NOT NULL, dist
 DESCRIBE dataLog;
 exit;
 
+# to delete a column
+ALTER TABLE myTablename drop myField;
+
 ## unsure if needed
 ##append 
 ##sql_mode=""
@@ -169,6 +172,15 @@ show tables;
 #SHOW COLUMNS FROM table_name;
 describe db;
 #?select Db from mysql.db;
+
+#mysqladmin shutdown;
+#chown -R user_name /path/to/mysql/datadir;
+
+/etc/init.d/mysql --help
+#Usage: mysql.server {start|stop|restart|reload|force-reload|status} [ MySQL server options ]
+
+
+update mysql.user set user="my_user" where user="root";
 describe user;
 select Host,User,Password from user;
 exit
