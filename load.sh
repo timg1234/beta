@@ -105,6 +105,11 @@ sudo /bin/systemctl start grafana-server
 # Log in to Grafana with the default username admin, and the default password admin.
 # Change the password for the admin user when asked.
 
+# Set up user permissions
+CREATE USER 'grafanaReader' IDENTIFIED BY 'password';
+GRANT SELECT ON mydatabase.mytable TO 'grafanaReader';
+# FLUSH PRIVILEGES;
+
 #install mysqldb
 # old sudo apt-get install python3-dev libmysqlclient-dev
 sudo apt-get install python3-dev libmariadb-dev-compat libmariadb-dev -y
@@ -268,6 +273,8 @@ sudo cp /etc/ssh/ssh_config /etc/ssh/ssh_config.backup
 sudo nano /etc/ssh/ssh_config
 # change ‘Port 22’ to ‘Port 1818’
 sudo /etc/init.d/ssh restart
+
+
 
 crontab -e
 chmod a+x file. Py
