@@ -80,12 +80,8 @@ exit;
 # to delete a column
 ALTER TABLE myTablename drop myField;
 
-## unsure if needed
-##append 
-##sql_mode=""
-##to
-##/etc/mysql/my.cnf
-#sudo sh -c 'sql_mode="" >> /etc/mysql/my.cnf'
+# append sql_mode="" to /etc/mysql/my.cnf
+sudo sh -c "echo 'sql_mode=\"\"' >> /etc/mysql/my.cnf"
 
 #install mysqldb
 # old sudo apt-get install python3-dev libmysqlclient-dev
