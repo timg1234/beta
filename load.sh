@@ -83,6 +83,28 @@ ALTER TABLE myTablename drop myField;
 # append sql_mode="" to /etc/mysql/my.cnf
 sudo sh -c "echo 'sql_mode=\"\"' >> /etc/mysql/my.cnf"
 
+# Grafana setup
+# add APT key used to athenticate packages
+sudo wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+# add Grafana APT repository
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+# install Grafana
+sudo apt-get update
+sudo apt-get install -y grafana
+
+# Ensure Grafana starts at reboot
+sudo /bin/systemctl enable grafana-server
+
+# Start the Grafana server
+sudo /bin/systemctl start grafana-server
+
+# Open a browser and go to http://<ip address>:3000, where the IP address is the address that you used to 
+# connect to the Raspberry Pi earlier. You’re greeted with the Grafana login page.
+# Log in to Grafana with the default username admin, and the default password admin.
+# Change the password for the admin user when asked.
+
 #install mysqldb
 # old sudo apt-get install python3-dev libmysqlclient-dev
 sudo apt-get install python3-dev libmariadb-dev-compat libmariadb-dev -y
