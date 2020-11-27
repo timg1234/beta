@@ -80,6 +80,9 @@ exit;
 # to delete a column
 ALTER TABLE myTablename drop myField;
 
+# to view last 10 entries
+SELECT * FROM yourTableName ORDER BY yourColumnName DESC LIMIT 10;
+
 # append sql_mode="" to /etc/mysql/my.cnf
 sudo sh -c "echo 'sql_mode=\"\"' >> /etc/mysql/my.cnf"
 
@@ -125,8 +128,44 @@ sudo apt-get install python3-dev libmariadb-dev-compat libmariadb-dev
 
 sudo pip install mysql-connector-python
 
+# check that mysql is running
+sudo service mysql status
+
+# test connection
+#mysql -u <user name> -p -h <database server private IP>
+
+# check the datadir
+sudo ls -l /var/lib/mysql/
+
+# check error log
+sudo nano /var/log/mysql/error.log
+
+# create user
+create user 'my_user'@'localhost' identified by 'pwerd';
+
+# drop user
+drop user 'my_user'@'localhost';
+
+# grant all privileges
+grant all privileges on * . * to 'my_user'@'localhost';
+flush privileges;
+
+# show grants
+SHOW GRANTS FOR 'my_user'@'localhost';
+
+# check for open ports
+sudo apt-get install telnet
+telnet localhost 3306
+
+# disable warning
+sudo apt-get update
+sudo apt-get install rpi.gpio
+
 sudo mysql -u root -p
 pwerd
+
+
+
 
 #access error, to avoid in mysql
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'pwerd';
