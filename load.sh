@@ -70,15 +70,19 @@ USE 4_database;
 
 CREATE TABLE dataLog(datetime DATETIME NOT NULL, dist1 FLOAT(5,2) NOT NULL, dist2 FLOAT(5,2) NOT NULL, vib1 FLOAT(5,2) NOT NULL, vib2 FLOAT(5,2) NOT NULL);
 
-
 #CREATE TABLE dataLog(datetime DATETIME NOT NULL, temperature FLOAT(5,2) NOT NULL);
 #USE alert_database;
 #CREATE TABLE dataLog(datetime DATETIME NOT NULL, alert FLOAT(5,2) NOT NULL);
 DESCRIBE dataLog;
 exit;
 
+# to add a column 
+ALTER TABLE dataLog ADD COLUMN dist2 float(5, 2) after dist1;
+
 # to delete a column
 ALTER TABLE myTablename drop myField;
+
+CREATE TABLE dataLog(datetime DATETIME NOT NULL, dist1 FLOAT(5,2) NOT NULL);
 
 # to view last 10 entries
 SELECT * FROM yourTableName ORDER BY yourColumnName DESC LIMIT 10;
