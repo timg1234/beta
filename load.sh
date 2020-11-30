@@ -66,6 +66,10 @@ pwerd
 CREATE DATABASE 4_database;
 #CREATE DATABASE alert_database;
 SHOW DATABASES;
+
+# to delete a database;
+#drop database my_database;
+
 USE 4_database;
 
 CREATE TABLE dataLog(datetime DATETIME NOT NULL, dist1 FLOAT(5,2) NOT NULL, dist2 FLOAT(5,2) NOT NULL, vib1 FLOAT(5,2) NOT NULL, vib2 FLOAT(5,2) NOT NULL);
