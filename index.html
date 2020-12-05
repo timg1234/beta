@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 	<head>
 		<title>Test Webpage</title>
+	<script src="myscript.js"></script>
 	</head>
 	<body>
 		<br/>
 		<center>
 			<h1 id="demo">Hey!</h1>		
 		</center>						
-	<script>
-		num_1 = 10;
-		num_1 += 5; 
-		document.getElementById("demo").innerHTML = num_1;
-	</script>
+	<p>Hello, please enter your name:</p>
+	<input id="name">
+	<button type = "button" onclick="hello()">Submit</button>
+	<br/><br/>
+	<p id="output"></p>
+	
 </html>
